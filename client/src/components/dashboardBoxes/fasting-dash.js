@@ -1,14 +1,14 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
-function Water() {
+function Fasting() {
 
     return (
         <div className='sections'>
-            <h1>Water</h1>
+            <h1>Intermittent Fasting</h1>
             
         </div>
     )
 }
 
-export default Water;
+export default Fasting;

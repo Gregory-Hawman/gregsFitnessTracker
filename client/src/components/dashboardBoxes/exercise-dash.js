@@ -1,14 +1,14 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
-function Sleep() {
+function Exercise() {
 
     return (
         <div className='sections'>
-            <h1>Sleep</h1>
+            <h1>Exercise</h1>
             
         </div>
     )
 }
 
-export default Sleep;
+export default Exercise;

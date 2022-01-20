@@ -1,14 +1,14 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
-function Steps() {
+function Water() {
 
     return (
         <div className='sections'>
-            <h1>Steps</h1>
+            <h1>Water</h1>
             
         </div>
     )
 }
 
-export default Steps;
+export default Water;

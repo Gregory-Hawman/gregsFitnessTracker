@@ -1,14 +1,15 @@
 import React from 'react';
-import '../App.css';
+import '../../App.css';
 
-function Exercise() {
+function Weight() {
+    
 
     return (
         <div className='sections'>
-            <h1>Exercise</h1>
+            <h1>Weight</h1>
             
         </div>
     )
 }
 
-export default Exercise;
+export default Weight;

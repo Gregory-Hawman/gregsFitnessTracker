@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import '../../App.css';
 
 function Calories() {
     const [goal, setGoal] = useState(2000)

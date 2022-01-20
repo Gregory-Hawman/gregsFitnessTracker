@@ -1,11 +1,13 @@
 import React from 'react';
 // import Navbar from './navbar';
-import FoodLog from './foodLog';
-import Calories from './calories';
-import Water from './water';
-import Steps from './steps';
-import Exercise from './exercise';
-import Sleep from './sleep';
+import FoodLog from './dashboardBoxes/foodLog-dash';
+import Calories from './dashboardBoxes/calories-dash';
+import Water from './dashboardBoxes/water-dash';
+import Fasting from './dashboardBoxes/fasting-dash';
+import Weight from './dashboardBoxes/weight-dash';
+import Steps from './dashboardBoxes/steps-dash';
+import Exercise from './dashboardBoxes/exercise-dash';
+import Sleep from './dashboardBoxes/sleep-dash';
 import '../App.css';
 
 function Dashboard() {
@@ -34,8 +36,10 @@ function Dashboard() {
                 <FoodLog />
                 <Calories />
                 <Water />
+                <Fasting />
             </div>
             <div className='row2'>
+                <Weight />
                 <Steps />
                 <Exercise />
                 <Sleep />
