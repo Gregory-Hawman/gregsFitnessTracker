@@ -40,4 +40,20 @@
 .caloriesBar {
   display: flex;
   width: 100%;
+  align-items: center;
+}
+
+.progress-wrapper {
+  background: #F5F5F5;
+  height: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  margin: 0 0.5rem;
+}
+
+.progress-filler {
+  background: limegreen;
+  height: 100%;
+  transition: width 0.8s ease-in;
+  border-radius: 15px 0 0 15px;
 }

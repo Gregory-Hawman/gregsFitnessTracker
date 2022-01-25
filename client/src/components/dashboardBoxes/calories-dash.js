@@ -1,80 +1,105 @@
 import React, { useState } from 'react';
+import Macros from './marcos-dash';
 import '../../App.css';
 
 function Calories() {
-    const [goal, setGoal] = useState(2000)
-    const [buttonSetGoal, setButtonSetGoal] = useState(false)
-    const [currentCals, setCurrentCals] = useState(0)
-    const [buttonSetCals, setButtonSetCals] = useState(false)
+    const [cals, setCals] = useState({
+        cals : 1111, 
+        goal : 2000
+    })
+    const [change, setChange] = useState({
+        cals : false, 
+        goal : false
+    })
 
-    const handleSetGoal = (e) => {
-        e.preventDefault()
-        setGoal(e.target.value)
+    const handleCals = (e) => {
+        const { name, value } = e.target
+            e.preventDefault()
+            setCals({
+                ...cals,
+                [name] : value
+            })
+    }
+    const handleChange = (e) => {
+        const { name } = e.target
+            e.preventDefault()
+            setChange({
+                ...change,
+                [name] : !change[name]
+            })
     }
 
-    const handleButtonSetGoal = (e) => {
-        e.preventDefault()
-        setButtonSetGoal(!buttonSetGoal)
-    }
+    // console.log(change.cals)
+    // console.log(change.goal)
 
-    const handleSetCals = (e) => {
-        e.preventDefault();
-        setCurrentCals(e.target.value)
-    }
-
-    const handleButtonSetCals = (e) => {
-        e.preventDefault()
-        setButtonSetCals(!buttonSetCals)
+    const fillerPercent = (unit, goal) => {
+        return (unit/goal) * 100
     }
 
     return (
         <div className='sections'>
             <h1>Calories/ Marcos</h1>
             <div className='caloriesBar'>
-                <p>0</p>
-                <div className='prgressBar colorBar'></div>
-                <div className='prgressBar'>{currentCals}</div>
-                <p>{goal}</p>
+                <div className='progress-wrapper'>
+                    <div className='progress-filler' style={{ width: `${fillerPercent(cals.cals, cals.goal)}%` }}>{cals.cals} / {cals.goal}</div>
+                </div>
             </div>
-            {buttonSetGoal ?
-            <form onSubmit={handleButtonSetGoal}>
-                <input
-                    type='number'
-                    name='inputGoal'
-                    value={goal}
-                    placeholder='Target Calorie Amount'
-                    onChange={handleSetGoal}
-                ></input>
-                <button type='submit'>Enter</button>
-            </form> :
-            <button onClick={handleButtonSetGoal}>Set Goal</button>
-            }
-             
-            {buttonSetCals ?
-            <form onSubmit={handleButtonSetCals}>
+
+            {change.cals ?
+            <form>
                 <input
                     type ='number'
-                    name='inputGoal'
-                    value={currentCals}
-                    placeholder='Target Calorie Amount'
-                    onChange={handleSetCals}
+                    name='cals'
+                    value={cals.cals}
+                    placeholder='Calories Eaten'
+                    onChange={handleCals}
                 ></input>
-                <button type='submit'>Enter</button>
+                <button 
+                    type='submit' 
+                    name='cals' 
+                    value={change.cals}
+                    onClick={handleChange}
+                >
+                    Enter
+                </button>
             </form> :
-            <button onClick={handleButtonSetCals}>Set Cals</button>
+            <button 
+                name='cals'
+                value={change.cals}
+                onClick={handleChange}
+            >
+                Cals
+            </button>
             }
-            <div>
-                <h2>Carbs</h2>
-            </div>
-            <div>
-                <h2>Protein</h2>
-            </div>
+
+            {change.goal ?
+            <form>
+                <input
+                    type='number'
+                    name='goal'
+                    value={cals.goal}
+                    placeholder='Target Calorie Amount'
+                    onChange={handleCals}
+                ></input>
+                <button 
+                    type='submit' 
+                    name='goal' 
+                    value={change.goal}
+                    onClick={handleChange}
+                >
+                    Enter
+                </button>
+            </form> :
+            <button 
+                name='goal'
+                value={change.goal}
+                onClick={handleChange}
+            >
+                Cals Goal
+            </button>
+            }
             
-            <div>
-                <h2>Fat</h2>
-            </div>
-            
-            
+            <Macros />
         </div>
     )
 }
