@@ -39,9 +39,9 @@ function Calories() {
             {buttonSetGoal ?
             <form onSubmit={handleButtonSetGoal}>
                 <input
-                    type = 'number'
-                    name= 'inputGoal'
-                    value = {goal}
+                    type='number'
+                    name='inputGoal'
+                    value={goal}
                     placeholder='Target Calorie Amount'
                     onChange={handleSetGoal}
                 ></input>
@@ -53,9 +53,9 @@ function Calories() {
             {buttonSetCals ?
             <form onSubmit={handleButtonSetCals}>
                 <input
-                    type = 'number'
-                    name= 'inputGoal'
-                    value = {currentCals}
+                    type ='number'
+                    name='inputGoal'
+                    value={currentCals}
                     placeholder='Target Calorie Amount'
                     onChange={handleSetCals}
                 ></input>

@@ -1,18 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Graph from '../circleProgres'
 import '../../App.css';
 
 function Sleep() {
+    const [sleepAmount, setSleepAmount] = useState(0)
+    const [settingSleepAmount, setSettingSleepAmount] = useState(false)
+    
+    const [sleepGoal, setSleepGoal] = useState(8)
+    const [settingGoal, setSettingGoal] = useState(false)
+
+    const percentage = sleepAmount/sleepGoal * 100
+
+    function setGoal() {
+        setSettingGoal(!settingGoal)
+    }
+
+    function sleepGoalInput(e) {
+        e.preventDefault();
+        setSleepGoal(e.target.value)
+    }
+
+    function setSleep() {
+        setSettingSleepAmount(!settingSleepAmount)
+    }
+    function sleepAmountInput(e) {
+        e.preventDefault();
+        setSleepAmount(e.target.value)
+    }
 
     return (
         <div className='sections'>
             <h1>Sleep</h1>
-            <svg width='200' height= '200'>
-                <g transform='rotate(-90 100 100)'>
-                    <circle r='70' cx='100' cy='100' fill='transparent' stroke='lightgrey' stroke-width='.75rem' stroke-dasharray='439.8' stroke-dashoffset='0' />
-                    <circle r="70" cx="100" cy="100" fill="transparent" stroke="limegreen" stroke-width=".8rem" stroke-dasharray="439.8" stroke-dashoffset="66"/>
-                </g>
-                <text x='50%' y='50%' dominantBaseline='central' text-anchor='middle' fill='white'>85%</text>
-            </svg>
+            <Graph color={'limegreen'} percentage={percentage}/>
+            <div>
+                {settingSleepAmount ? 
+                    <form onSubmit={setSleep}>
+                        <input 
+                            type='float'
+                            name='sleepAmountInput'
+                            value={sleepAmount}
+                            placeholder='How many hours did you sleep?'
+                            onChange= {sleepAmountInput}
+                        ></input>
+                        <button type="submit">Sumbit</button>
+                    </form> : 
+                    <button onClick={setSleep}>Time Slept</button>
+                }
+                {settingGoal ? 
+                <form onSubmit={setGoal}>
+                    <input 
+                        type='fkl'
+                        name='sleepGoalInput'
+                        value= {sleepGoal}
+                        placeholder='How many hours to you want to sleep?'
+                        onChange= {sleepGoalInput}
+                    ></input>
+                    <button type="submit">Sumbit</button>
+                </form> : 
+                <button onClick={setGoal}>Sleep Goal</button>
+                } 
+            </div>
         </div>
     )
 }
