@@ -47,7 +47,7 @@
   background: #F5F5F5;
   height: 2rem;
   border-radius: 15px;
-  width: 100%;
+  width: 95%;
   margin: 0 0.5rem;
 }
 
@@ -56,4 +56,8 @@
   height: 100%;
   transition: width 0.8s ease-in;
   border-radius: 15px 0 0 15px;
+}
+
+.macro-header {
+  font-size: 1.25rem;
 }

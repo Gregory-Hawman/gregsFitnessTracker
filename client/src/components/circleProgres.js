@@ -50,7 +50,7 @@ function Text ({ percentage }) {
     )
 }
 
-function Graph ({ color, percentage }) {
+export function SleepGraph ({ color, percentage }) {
     const pct = cleanPercentage(percentage)
     return (
         <svg width={200} height={200}>
@@ -63,4 +63,16 @@ function Graph ({ color, percentage }) {
     )
 }
 
-export default Graph
+export function FastingGraph ({ color1, color2, percentage1, percentage2 }) {
+    const pct1 = cleanPercentage(percentage1)
+    const pct2 = cleanPercentage(percentage2)
+    return (
+        <svg width={200} height={200}>
+            <g>
+                <Circle color='lightgrey'/>
+                <Circle color={color2} percentage={pct2}/>
+                <Circle color={color1} percentage={pct1}/>
+            </g>
+        </svg>
+    )
+}

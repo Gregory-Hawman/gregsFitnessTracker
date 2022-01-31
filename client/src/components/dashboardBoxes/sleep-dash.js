@@ -1,63 +1,90 @@
 import React, { useState } from 'react';
-import Graph from '../circleProgres'
+import { SleepGraph } from '../circleProgres'
 import '../../App.css';
 
 function Sleep() {
-    const [sleepAmount, setSleepAmount] = useState(0)
-    const [settingSleepAmount, setSettingSleepAmount] = useState(false)
+    const [sleep, setSleep] = useState({
+        sleep : 6.5,
+        goal : 8
+    })
     
-    const [sleepGoal, setSleepGoal] = useState(8)
-    const [settingGoal, setSettingGoal] = useState(false)
+    const [change, setChange] = useState({
+        sleep : false,
+        goal : false
+    })
 
-    const percentage = sleepAmount/sleepGoal * 100
+    const percentage = sleep.sleep/sleep.goal * 100
 
-    function setGoal() {
-        setSettingGoal(!settingGoal)
+    const handleSleep = (e) => {
+        const { name, value } = e.target
+        e.preventDefault()
+        setSleep({
+            ...sleep,
+            [name] : value
+        })
     }
 
-    function sleepGoalInput(e) {
-        e.preventDefault();
-        setSleepGoal(e.target.value)
-    }
-
-    function setSleep() {
-        setSettingSleepAmount(!settingSleepAmount)
-    }
-    function sleepAmountInput(e) {
-        e.preventDefault();
-        setSleepAmount(e.target.value)
+    const handleChange = (e) => {
+        const { name } = e.target
+        e.preventDefault()
+        setChange({
+            ...change,
+            [name] : !change[name]
+        })
     }
 
     return (
         <div className='sections'>
             <h1>Sleep</h1>
-            <Graph color={'limegreen'} percentage={percentage}/>
+            <SleepGraph color={'limegreen'} percentage={percentage}/>
             <div>
-                {settingSleepAmount ? 
-                    <form onSubmit={setSleep}>
+                {change.sleep ? 
+                    <form>
                         <input 
                             type='float'
-                            name='sleepAmountInput'
-                            value={sleepAmount}
+                            name='sleep'
+                            value={sleep.sleep}
                             placeholder='How many hours did you sleep?'
-                            onChange= {sleepAmountInput}
+                            onChange= {handleSleep}
                         ></input>
-                        <button type="submit">Sumbit</button>
+                        <button 
+                            type='submit'
+                            name='sleep'
+                            onClick={handleChange}
+                        >
+                            Enter
+                        </button>
                     </form> : 
-                    <button onClick={setSleep}>Time Slept</button>
+                    <button
+                        name='sleep'  
+                        onClick={handleChange}
+                    >
+                        Time Slept
+                    </button>
                 }
-                {settingGoal ? 
-                <form onSubmit={setGoal}>
+                {change.goal ? 
+                <form>
                     <input 
-                        type='fkl'
-                        name='sleepGoalInput'
-                        value= {sleepGoal}
+                        type='float'
+                        name='goal'
+                        value= {sleep.goal}
                         placeholder='How many hours to you want to sleep?'
-                        onChange= {sleepGoalInput}
+                        onChange= {handleSleep}
                     ></input>
-                    <button type="submit">Sumbit</button>
+                    <button 
+                        type="submit"
+                        name='goal'
+                        onClick={handleChange}
+                    >
+                        Sumbit
+                    </button>
                 </form> : 
-                <button onClick={setGoal}>Sleep Goal</button>
+                <button
+                    name='goal' 
+                    onClick={handleChange}
+                >
+                    Sleep Goal
+                </button>
                 } 
             </div>
         </div>
