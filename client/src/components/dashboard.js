@@ -1,6 +1,6 @@
 import React from 'react';
 // import Navbar from './navbar';
-import FoodLog from './dashboardBoxes/foodLog-dash';
+import FoodLog from './food/FoodContainer';
 import Calories from './dashboardBoxes/calories-dash';
 import Water from './dashboardBoxes/water-dash';
 import Fasting from './dashboardBoxes/fasting-dash';

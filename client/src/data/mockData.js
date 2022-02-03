@@ -19,43 +19,43 @@ export const yesterday = {
         ],
         lunch: [
             {
-                name: 'eggs',
-                amount: 2,
-                description: 'fried in olive oil'
-            }, 
-            {
-                name: 'toast',
+                name: 'sandwich',
                 amount: 1,
-                description: '1 slice, whole wheat bread'
-            }, 
+                description: 'ham, cheese, tomatoes, pickles, lettuce, mayo'
+            },
             {
-                name: 'coffee',
-                amount: 3,
-                description: 'black coffee, 6oz cup'
+                name: 'carrots',
+                amount: 25,
+                description: 'baby carrots'
             }
         ],
         dinner: [
             {
-                name: 'eggs',
-                amount: 2,
-                description: 'fried in olive oil'
+                name: 'pasta',
+                amount: 1.5,
+                description: 'red sauce pasta with meatballs'
             }, 
             {
-                name: 'toast',
+                name: 'garlic bread',
                 amount: 1,
-                description: '1 slice, whole wheat bread'
+                description: '1 slice, butter, garlic'
             }, 
             {
-                name: 'coffee',
-                amount: 3,
-                description: 'black coffee, 6oz cup'
+                name: 'salad',
+                amount: 1,
+                description: 'arugula, toasted almonds, honey mustard dressing, goat cheese, radish'
+            },
+            {
+                name: 'beer',
+                amount: 1,
+                description: 'some ipa, fine'
             }
         ],
         snack: [
             {
-                name: 'eggs',
+                name: 'girl scout cooking',
                 amount: 2,
-                description: 'fried in olive oil'
+                description: 'samoas'
             }
         ]
     },
